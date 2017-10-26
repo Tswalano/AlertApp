@@ -389,7 +389,7 @@ public class OneTimeReg extends AppCompatActivity implements
                     return;
                 }
 
-                startPhoneNumberVerification(mPhoneNumberField.getText().toString());
+                startPhoneNumberVerification("+27"+mPhoneNumberField.getText().toString());
                 break;
             case R.id.button_verify_phone:
                 String code = mVerificationField.getText().toString();
@@ -401,7 +401,7 @@ public class OneTimeReg extends AppCompatActivity implements
                 verifyPhoneNumberWithCode(mVerificationId, code);
                 break;
             case R.id.button_resend:
-                resendVerificationCode(mPhoneNumberField.getText().toString(), mResendToken);
+                resendVerificationCode("+27"+mPhoneNumberField.getText().toString(), mResendToken);
                 break;
             case R.id.sign_out_button:
                 signOut();

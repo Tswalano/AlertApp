@@ -19,14 +19,12 @@ public class Add extends AppCompatActivity {
     Spinner spinner;
     Content person = new Content();
     String getSelected;
-    private DatabaseReference databaseReference;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-
-        //databaseReference = FirebaseDatabase.getInstance().getReference().child("Contacts");
 
         btnSave = (Button) findViewById(R.id.btnsave);
         txtName = (EditText) findViewById(R.id.name);
