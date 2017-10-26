@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:minHeight="88dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentLeft="true"
+        android:src="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:id="@+id/parentPanel"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/icon"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
+
+        <TextView
+            android:id="@+id/fname"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textColor="#FF9E3030"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold"
+            android:text="fname"/>
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textColor="#9e3030"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_weight="1"
+            android:gravity="top"
+            tools:text="number"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
