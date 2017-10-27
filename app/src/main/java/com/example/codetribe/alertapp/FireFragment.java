@@ -422,4 +422,6 @@ public class FireFragment extends Fragment implements GoogleApiClient.OnConnecti
             return card;
         }
     }
+
+
 }

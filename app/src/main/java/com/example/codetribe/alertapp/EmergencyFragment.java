@@ -145,7 +145,6 @@ public class EmergencyFragment extends Fragment implements GoogleApiClient.OnCon
             @Override
             public void onClick(View v) {
                 //Send SMS to relevant people
-                userUID = mAuth.getCurrentUser().getUid().toString();
                 FirebaseDatabase.getInstance().getReference().child(userUID).child("Emergency")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
 

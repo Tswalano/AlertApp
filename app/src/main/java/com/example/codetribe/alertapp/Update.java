@@ -79,6 +79,7 @@ public class  Update extends AppCompatActivity {
                         databaseReference.setValue(person);
                         Toast.makeText(getApplicationContext(), "Record Update", Toast.LENGTH_LONG).show();
 
+                        finish();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
 

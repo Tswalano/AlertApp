@@ -61,6 +61,7 @@ public class Add extends AppCompatActivity {
 
                 databaseReference.child(userUID).child(spinner.getSelectedItem().toString()).push().setValue(person);
                 Toast.makeText(getApplicationContext(), "User " + userUID + " " + spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                finish();
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
