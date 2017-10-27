@@ -141,6 +141,7 @@ public class OneTimeReg extends AppCompatActivity implements
                     // Invalid request
                     // [START_EXCLUDE]
                     mPhoneNumberField.setError("Invalid phone number.");
+                    progressBar.setVisibility(View.GONE);
                     // [END_EXCLUDE]
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
@@ -208,7 +209,6 @@ public class OneTimeReg extends AppCompatActivity implements
 
     private void startPhoneNumberVerification(String phoneNumber) {
         // [START start_phone_auth]
-        Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
         progressBar.setVisibility(View.VISIBLE);
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -252,6 +252,7 @@ public class OneTimeReg extends AppCompatActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
 
+                            progressBar.setVisibility(View.GONE);
                             FirebaseUser user = task.getResult().getUser();
                             // [START_EXCLUDE]
                             updateUI(STATE_SIGNIN_SUCCESS, user);
@@ -263,6 +264,7 @@ public class OneTimeReg extends AppCompatActivity implements
                                 // The verification code entered was invalid
                                 // [START_EXCLUDE silent]
                                 mVerificationField.setError("Invalid code.");
+                                progressBar.setVisibility(View.GONE);
                                 // [END_EXCLUDE]
                             }
                             // [START_EXCLUDE silent]
@@ -373,6 +375,7 @@ public class OneTimeReg extends AppCompatActivity implements
         String phoneNumber = mPhoneNumberField.getText().toString();
         if (TextUtils.isEmpty(phoneNumber)) {
             mPhoneNumberField.setError("Invalid phone number.");
+            progressBar.setVisibility(View.GONE);
             return false;
         }
 
