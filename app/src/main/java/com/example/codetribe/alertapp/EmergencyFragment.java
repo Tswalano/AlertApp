@@ -40,6 +40,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,6 +70,8 @@ public class EmergencyFragment extends Fragment implements GoogleApiClient.OnCon
     private DatabaseReference db;
     String key;
     FirebaseListAdapter<Content> firebaseListAdapter;
+    FirebaseAuth mAuth;
+    String userUID;
 
     //SMS variables
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
@@ -127,10 +130,13 @@ public class EmergencyFragment extends Fragment implements GoogleApiClient.OnCon
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         buildGoogleApiClient();
+
+        mAuth = FirebaseAuth.getInstance();
+        userUID = mAuth.getCurrentUser().getPhoneNumber().toString();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_emergency, container, false);
 
-        db = FirebaseDatabase.getInstance().getReference().child("Emergency");
+        db = FirebaseDatabase.getInstance().getReference().child(userUID).child("Emergency");
         final ListView myList = (ListView) view.findViewById(R.id.list);
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
@@ -139,7 +145,8 @@ public class EmergencyFragment extends Fragment implements GoogleApiClient.OnCon
             @Override
             public void onClick(View v) {
                 //Send SMS to relevant people
-                FirebaseDatabase.getInstance().getReference().child("Emergency")
+                userUID = mAuth.getCurrentUser().getUid().toString();
+                FirebaseDatabase.getInstance().getReference().child(userUID).child("Emergency")
                         .addListenerForSingleValueEvent(new ValueEventListener() {
 
                             @Override

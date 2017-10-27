@@ -21,7 +21,8 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoBar">
         </activity>
-        <activity android:name=".Update" />
+        <activity android:name=".Update"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Add"
             android:parentActivityName=".MainActivity" />

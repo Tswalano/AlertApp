@@ -60,6 +60,11 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -178,6 +183,7 @@
             <Button
                 android:id="@+id/sign_out_button"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:text="@string/sign_out" />

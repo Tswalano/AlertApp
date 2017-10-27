@@ -11,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -63,6 +65,8 @@ public class OneTimeReg extends AppCompatActivity implements
     private Button mResendButton;
     private Button mSignOutButton;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +91,8 @@ public class OneTimeReg extends AppCompatActivity implements
         mVerifyButton = (Button) findViewById(R.id.button_verify_phone);
         mResendButton = (Button) findViewById(R.id.button_resend);
         mSignOutButton = (Button) findViewById(R.id.sign_out_button);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         // Assign click listeners
         mStartButton.setOnClickListener(this);
@@ -202,6 +208,9 @@ public class OneTimeReg extends AppCompatActivity implements
 
     private void startPhoneNumberVerification(String phoneNumber) {
         // [START start_phone_auth]
+        Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
+        progressBar.setVisibility(View.VISIBLE);
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
                 60,                 // Timeout duration
@@ -354,6 +363,7 @@ public class OneTimeReg extends AppCompatActivity implements
             mStatusText.setText(R.string.signed_in);
             mDetailText.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
+            progressBar.setVisibility(View.GONE);
             Intent intent = new Intent(OneTimeReg.this, MainActivity.class);
             startActivity(intent);
         }
@@ -389,7 +399,9 @@ public class OneTimeReg extends AppCompatActivity implements
                     return;
                 }
 
-                startPhoneNumberVerification("+27"+mPhoneNumberField.getText().toString());
+                Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.VISIBLE);
+                startPhoneNumberVerification("+27" + mPhoneNumberField.getText().toString());
                 break;
             case R.id.button_verify_phone:
                 String code = mVerificationField.getText().toString();
@@ -401,7 +413,7 @@ public class OneTimeReg extends AppCompatActivity implements
                 verifyPhoneNumberWithCode(mVerificationId, code);
                 break;
             case R.id.button_resend:
-                resendVerificationCode("+27"+mPhoneNumberField.getText().toString(), mResendToken);
+                resendVerificationCode("+27" + mPhoneNumberField.getText().toString(), mResendToken);
                 break;
             case R.id.sign_out_button:
                 signOut();
