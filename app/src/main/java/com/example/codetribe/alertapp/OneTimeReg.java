@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -401,8 +400,6 @@ public class OneTimeReg extends AppCompatActivity implements
                 if (!validatePhoneNumber()) {
                     return;
                 }
-
-                Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.VISIBLE);
                 startPhoneNumberVerification("+27" + mPhoneNumberField.getText().toString());
                 break;
