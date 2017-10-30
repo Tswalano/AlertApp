@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -177,7 +178,7 @@ public class CrimeFragment extends Fragment implements GoogleApiClient.OnConnect
                 // generate random color
                 int color = generator.getColor(getItem(position));
                 TextDrawable drawable = TextDrawable.builder()
-                        .buildRect(String.valueOf(firstLetter), color); // radius in px
+                        .buildRect(String.valueOf(firstLetter), Color.GRAY); // radius in px
 
                 name.setText(model.getName());
                 number.setText(model.getSurname());

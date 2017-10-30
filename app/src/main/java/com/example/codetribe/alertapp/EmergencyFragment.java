@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -177,9 +178,9 @@ public class EmergencyFragment extends Fragment implements GoogleApiClient.OnCon
                 char firstLetter = model.getName().charAt(0);
                 ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
                 // generate random color
-                int color = generator.getColor(getItem(position));
+               // int color = generator.getColor(getItem(position));
                 TextDrawable drawable = TextDrawable.builder()
-                        .buildRect(String.valueOf(firstLetter), color); // radius in px
+                        .buildRect(String.valueOf(firstLetter), Color.GRAY); // radius in px
 
                 name.setText(model.getName());
                 number.setText(model.getSurname());
