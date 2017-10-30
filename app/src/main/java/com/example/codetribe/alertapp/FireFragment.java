@@ -176,6 +176,7 @@ public class FireFragment extends Fragment implements GoogleApiClient.OnConnecti
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 getRef(myPosition).removeValue();
+                                Toast.makeText(mActivity, "Contact Deleted", Toast.LENGTH_SHORT).show();
                             }
                         });
 

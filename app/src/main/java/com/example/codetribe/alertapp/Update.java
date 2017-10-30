@@ -77,7 +77,7 @@ public class  Update extends AppCompatActivity {
                         person.setSurname(Number.getText().toString());
 
                         databaseReference.setValue(person);
-                        Toast.makeText(getApplicationContext(), "Record Update", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Contact Successfully Updated", Toast.LENGTH_LONG).show();
 
                         finish();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

@@ -201,6 +201,7 @@ public class CrimeFragment extends Fragment implements GoogleApiClient.OnConnect
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 getRef(myPosition).removeValue();
+                                Toast.makeText(mActivity, "Contact Deleted", Toast.LENGTH_SHORT).show();
                             }
                         });
 

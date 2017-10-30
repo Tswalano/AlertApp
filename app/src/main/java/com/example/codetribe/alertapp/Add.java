@@ -60,7 +60,7 @@ public class Add extends AppCompatActivity {
                 String userUID = mAuth.getCurrentUser().getPhoneNumber().toString();
 
                 databaseReference.child(userUID).child(spinner.getSelectedItem().toString()).push().setValue(person);
-                Toast.makeText(getApplicationContext(), "User " + userUID + " " + spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Contact Added Successfully", Toast.LENGTH_LONG).show();
                 finish();
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

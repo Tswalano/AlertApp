@@ -203,6 +203,7 @@ public class EmergencyFragment extends Fragment implements GoogleApiClient.OnCon
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 getRef(myPosition).removeValue();
+                                Toast.makeText(mActivity, "Contact Deleted", Toast.LENGTH_SHORT).show();
                             }
                         });
 
